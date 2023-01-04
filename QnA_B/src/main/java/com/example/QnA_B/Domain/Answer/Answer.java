@@ -1,6 +1,6 @@
 package com.example.QnA_B.Domain.Answer;
 
-import com.example.QnA_B.Domain.Qustion.Question;
+import com.example.QnA_B.Domain.Question.Question;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

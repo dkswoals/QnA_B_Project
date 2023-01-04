@@ -1,14 +1,9 @@
 package com.example.QnA_B.Repository;
 
-import com.example.QnA_B.Domain.Answer.Answer;
-import com.example.QnA_B.Domain.Qustion.Question;
-import jakarta.transaction.Transactional;
+import com.example.QnA_B.Service.QuestionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,21 +14,16 @@ public class JpaTest {
     @Autowired
     private QuestionRepository questionRepository;
     @Autowired
+    private QuestionService questionService;
+    @Autowired
     private AnswerRepository answerRepository;
 
-
-    @Transactional
     @Test
-    void TestA(){
-       Optional<Question> oq = this.questionRepository.findById(2);
-       assertTrue(oq.isPresent());
-       Question q = oq.get();
-
-       List<Answer> list = q.getAnswerList();
-
-       assertEquals(3,list.size());
-
-       System.out.println(list.get(0).getContent());
-
+    void testJpa(){
+        for(int i=0;i<=300;i++){
+            String subject = String.format("테스트 데이터:[%03d]",i);
+            String content = "내용없음";
+            questionService.create(subject,content);
+        }
     }
 }

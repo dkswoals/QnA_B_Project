@@ -1,4 +1,4 @@
-package com.example.QnA_B.Domain.Qustion;
+package com.example.QnA_B.Domain.Question;
 
 
 import com.example.QnA_B.Domain.Answer.Answer;
